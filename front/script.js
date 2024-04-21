@@ -4,14 +4,13 @@ formulaire.addEventListener("submit", async (event) => {
   event.preventDefault();
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
-  console.log(email, password);
 
   const response = await fetch("/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ email : email, password : password}),
+    body: JSON.stringify({ email, password }),
   });
 
   const data = await response.json();
@@ -19,7 +18,7 @@ formulaire.addEventListener("submit", async (event) => {
   const token = data.token;
 
   localStorage.setItem("token", token);
-  window.location.href = "./profil.html";
+  window.location.href = "./connexion.html";
 });
 
 const getMyProfile = async () => {
@@ -35,6 +34,3 @@ const getMyProfile = async () => {
 
   console.log(data);
 };
-
-
-

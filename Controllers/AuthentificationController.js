@@ -7,7 +7,6 @@ class AuthentificationController {
     
 
   async login(req, res) {
-    console.log(req.body);
     try {
       const body = req.body;
 
